@@ -1,0 +1,9 @@
+CheckoutKata.Business/bin/*
+packages/*
+CheckoutKata.Web.Service/bin/*
+CheckoutKata.Web.Client/bin/*
+CheckoutKata.Web.Client/obj/*
+CheckoutKata.Data/obj/*
+CheckoutKata.Web.Service/obj/*
+CheckoutKata.Business/obj/*
+CheckoutKata.Data/bin/*
