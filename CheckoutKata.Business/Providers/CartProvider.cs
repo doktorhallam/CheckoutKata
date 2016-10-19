@@ -93,7 +93,7 @@ namespace CheckoutKata.Business.Providers
 
                 cartItem.Subtotal =
                     (numberOfOffersPresent * cartItem.Product.Offer.Price)
-                    + ((cartItem.Quantity - numberOfOffersPresent) * cartItem.Product.Price);
+                    + ((cartItem.Quantity - (numberOfOffersPresent * cartItem.Product.Offer.Quantity)) * cartItem.Product.Price);
 
                 cart.Total += cartItem.Subtotal;
             }

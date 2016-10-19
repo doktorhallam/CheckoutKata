@@ -47,14 +47,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CheckoutKata.Business\CheckoutKata.Business.csproj">
-      <Project>{1fcea32a-f99b-4a89-b120-b04868420b0c}</Project>
-      <Name>CheckoutKata.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CheckoutKata.Data\CheckoutKata.Data.csproj">
-      <Project>{79e78fc6-7cce-4467-bc98-4cc8c881975b}</Project>
-      <Name>CheckoutKata.Data</Name>
-    </ProjectReference>
+    <Content Include="index.html" />
+    <Content Include="ng\controllers\checkoutController.js" />
+    <Content Include="ng\modules\checkoutkata.Application.js" />
+    <Content Include="ng\modules\checkoutkata.Services.js" />
+    <Content Include="ng\services\apiService.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ng\modules\checkoutkata.Controllers.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

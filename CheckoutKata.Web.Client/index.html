@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular.js"></script>
+</head>
+
+<body>
+
+    <div data-ng-app="checkoutkata" data-ng-controller="checkoutController as chk" data-ng-init="chk.init()">
+
+        <div class="ng-cloak">
+            <h2>Available Products:</h2>
+            <div data-ng-repeat="product in chk.products track by $index">
+                <strong>SKU: {{product.SKU}}</strong><br/>
+                <button data-ng-click="ctrl.increment(event, product.SKU)">+</button><br />
+                <button data-ng-click="ctrl.decrement(event, product.SKU)">-</button><br /><br />
+            </div>
+        </div>
+
+        <br /><br /><br /><br /><br />
+
+        <div class="ng-cloak">
+            <h2>Current Cart Total: {{chk.cart.Total}}</h2>
+        </div>
+
+    </div>
+
+    <script src="ng/modules/checkoutkata.Controllers.js"></script>
+    <script src="ng/controllers/checkoutController.js"></script>
+    <script src="ng/modules/checkoutkata.Services.js"></script>
+    <script src="ng/services/apiService.js"></script>
+    <script src="ng/modules/checkoutkata.Application.js"></script>
+
+</body>
+
+</html>
