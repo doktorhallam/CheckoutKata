@@ -8,21 +8,41 @@
 
 <body>
 
-    <div data-ng-app="checkoutkata" data-ng-controller="checkoutController as chk" data-ng-init="chk.init()">
+    <div style="width: 100%;" data-ng-app="checkoutkata" data-ng-controller="checkoutController as chk" data-ng-init="chk.init()">
 
-        <div class="ng-cloak">
+        <div class="ng-cloak" style="width: 45%; padding-left: 5px; float: left;">
             <h2>Available Products:</h2>
-            <div data-ng-repeat="product in chk.products track by $index">
-                <strong>SKU: {{product.SKU}}</strong><br/>
-                <button data-ng-click="chk.increment(product.SKU)">+</button><br />
-                <button data-ng-click="chk.decrement(product.SKU)">-</button><br /><br />
+            <div style="border: 1px solid #ccc; margin: 15px; padding: 5px;" data-ng-repeat="product in chk.products track by $index">
+                <strong>Product SKU: {{product.SKU}}</strong><br/>
+                <div style="margin: 5px;">
+                    Price: {{product.Price | currency}} each<br />
+                    <div data-ng-if="product.Offer != null">Offer: {{product.Offer.Quantity}} for {{product.Offer.Price | currency}}</div>
+                    <div style="margin-top: 4px;">
+                        <button data-ng-click="chk.increment(product.SKU)">+</button>&nbsp;<button data-ng-click="chk.decrement(product.SKU)">-</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <br /><br /><br /><br /><br />
-
-        <div class="ng-cloak">
-            <h2>Current Cart Total: {{chk.cart.Total}}</h2>
+        <div class="ng-cloak" style="width: 45%; padding-right: 50px; float: right;">
+            <h3>Current Cart:</h3>
+            <div data-ng-repeat="item in chk.cart.CartItems">
+                <div style="width: 30%; float: left;">
+                    Product SKU: {{item.Product.SKU}}
+                </div>
+                <div style="width: 30%; float: left;">
+                    Qty: {{item.Quantity}}
+                </div>
+                <div style="width: 30%; float: left;">
+                    Subtotal: {{item.Subtotal | currency}}
+                </div>
+                <br style="clear: both;" />
+            </div>
+            
+            <div style="border-top: 1px solid #000; text-align: right; margin-top: 4px;">
+                <h4>Current Cart Total: {{chk.cart.Total | currency}}</h4>
+                <button data-ng-click="chk.clear()">Clear Cart</button>
+            </div>
         </div>
 
     </div>
