@@ -9,12 +9,7 @@
 
         var instance = {};
 
-        //instance.cart = {};
-        //instance.products = [];
-
-        instance.clear = function (event) {
-
-            event.preventDefault();
+        instance.clear = function () {
 
             apiService.GET('http://localhost:52498/api/clear')
                 .then(function (response) {
@@ -23,9 +18,7 @@
 
         };
 
-        instance.decrement = function (event, sku) {
-
-            event.preventDefault();
+        instance.decrement = function (sku) {
 
             apiService.GET('http://localhost:52498/api/decrement?sku=' + sku)
                 .then(function (response) {
@@ -34,9 +27,7 @@
 
         };
 
-        instance.increment = function (event, sku) {
-
-            event.preventDefault();
+        instance.increment = function (sku) {
 
             apiService.GET('http://localhost:52498/api/increment?sku=' + sku)
                 .then(function (response) {
@@ -57,6 +48,7 @@
                     instance.cart = responses[0].data;
                     instance.products = responses[1].data;
                     console.log(instance.products);
+                    $scope.$apply();
                 });
 
         };

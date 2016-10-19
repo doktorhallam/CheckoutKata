@@ -14,8 +14,8 @@
             <h2>Available Products:</h2>
             <div data-ng-repeat="product in chk.products track by $index">
                 <strong>SKU: {{product.SKU}}</strong><br/>
-                <button data-ng-click="ctrl.increment(event, product.SKU)">+</button><br />
-                <button data-ng-click="ctrl.decrement(event, product.SKU)">-</button><br /><br />
+                <button data-ng-click="chk.increment(product.SKU)">+</button><br />
+                <button data-ng-click="chk.decrement(product.SKU)">-</button><br /><br />
             </div>
         </div>
 
