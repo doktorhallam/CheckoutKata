@@ -12,6 +12,7 @@ namespace CheckoutKata.Web.Service
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional });
+            
         }
     }
 }

@@ -1,6 +1,4 @@
 ﻿using CheckoutKata.Business.Providers;
-using CheckoutKata.Data.Models;
-using System.Collections.Generic;
 using System.Web.Http;
 
 namespace CheckoutKata.Web.Service.Controllers
@@ -19,30 +17,34 @@ namespace CheckoutKata.Web.Service.Controllers
 
         [HttpGet]
         [Route("products")]
-        public List<Product> Products()
+        public IHttpActionResult Products()
         {
-            return ProductProvider.GetAll();
+            return Json(
+                ProductProvider.GetAll());
         }
         
         [HttpGet]
         [Route("clear")]
-        public Cart Clear()
+        public IHttpActionResult Clear()
         {
-            return CartProvider.ClearCart();
+            return Json(
+                CartProvider.ClearCart());
         }
 
         [HttpGet]
         [Route("increment")]
-        public Cart Increment(string sku)
+        public IHttpActionResult Increment(string sku)
         {
-            return CartProvider.IncrementItem(sku);
+            return Json(
+                CartProvider.IncrementItem(sku));
         }
 
         [HttpGet]
         [Route("decrement")]
-        public Cart Decrement(string sku)
+        public IHttpActionResult Decrement(string sku)
         {
-            return CartProvider.DecrementItem(sku);
+            return Json(
+                CartProvider.DecrementItem(sku));
         }
     }
 }
